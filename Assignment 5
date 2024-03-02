@@ -1,0 +1,33 @@
+We will use a simple list to store the numbers, conditional statements to check for certain conditions, and functions to encapsulate the different tasks.
+Here's a basic example of a Python program that accomplishes this:
+```python
+def get_numbers():
+    numbers = []
+    while True:
+        try:
+            num = float(input("Enter a number (or type 'done' to finish): "))
+            numbers.append(num)
+        except ValueError:
+            break
+    return numbers
+def calculate_statistics(numbers):
+    total = sum(numbers)
+    average = total / len(numbers) if numbers else 0
+    max_num = max(numbers) if numbers else None
+    min_num = min(numbers) if numbers else None
+    return total, average, max_num, min_num
+def main():
+    numbers = get_numbers()
+    total, average, max_num, min_num = calculate_statistics(numbers)
+    print("\nStatistics:")
+    print(f"Total: {total}")
+    print(f"Average: {average}")
+    print(f"Maximum: {max_num}")
+    print(f"Minimum: {min_num}")
+if __name__ == "__main__":
+    main()
+```
+In this program:
+- The `get_numbers` function prompts the user to input numbers and adds them to a list until the user enters "done".
+- The `calculate_statistics` function takes a list of numbers and calculates the total, average, maximum, and minimum values.
+- The `main` function calls `get_numbers` to obtain the list of numbers, then calls `calculate_statistics` to process the numbers and finally prints out the statistics.
